@@ -3,119 +3,241 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>How to Join PenguinSMP</title>
+    <title>Connection Guide | PenguinSMP Minecraft Server</title>
     <style>
+        :root {
+            --bg-main: #0f1115;
+            --bg-card: #181c24;
+            --bg-inner: #0f1115;
+            --text-main: #e2e8f0;
+            --text-muted: #94a3b8;
+            --primary: #38bdf8;
+            --primary-hover: #0ea5e9;
+            --accent: #fbbf24;
+            --border: #2e3545;
+            --success: #4ade80;
+        }
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #1a1c1e;
-            color: #f0f2f5;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-main);
             margin: 0;
-            padding: 20px;
+            padding: 40px 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
-        }
-        .container {
-            max-width: 650px;
-            background-color: #24272c;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.3);
-            margin-top: 20px;
-        }
-        h1 {
-            color: #4fc3f7;
-            text-align: center;
-            margin-top: 0;
-        }
-        h2 {
-            color: #ffb74d;
-            border-bottom: 2px solid #3a3f47;
-            padding-bottom: 8px;
-        }
-        .connection-box {
-            background-color: #1a1c1e;
-            padding: 15px;
-            border-radius: 6px;
-            margin: 15px 0;
-            border-left: 5px solid #4fc3f7;
-        }
-        .ip-line {
-            font-size: 1.1em;
-            margin: 8px 0;
-        }
-        .highlight {
-            font-family: monospace;
-            background-color: #2e3440;
-            padding: 3px 8px;
-            border-radius: 4px;
-            color: #a3be8c;
-        }
-        ol {
-            padding-left: 20px;
             line-height: 1.6;
         }
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background-color: var(--bg-card);
+            padding: 45px;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+            border: 1px solid var(--border);
+            box-sizing: border-box;
+        }
+        .header-section {
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 30px;
+        }
+        h1 {
+            color: #ffffff;
+            margin: 0 0 10px 0;
+            font-size: 2.5em;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+        .subtitle {
+            font-size: 1.15em;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .section-title {
+            color: var(--accent);
+            font-size: 1.6em;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+        }
+        .connection-panel {
+            background-color: var(--bg-inner);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 30px 0;
+            border: 1px solid var(--border);
+            border-left: 6px solid var(--primary);
+        }
+        .panel-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+            padding: 12px 0;
+        }
+        .panel-row:not(:last-child) {
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .panel-label {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+        .value-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .code-badge {
+            font-family: 'Consolas', 'Courier New', monospace;
+            background-color: #242933;
+            padding: 8px 16px;
+            border-radius: 6px;
+            color: var(--success);
+            font-weight: 600;
+            font-size: 1.1em;
+            border: 1px solid rgba(255,255,255,0.1);
+            letter-spacing: 0.5px;
+        }
+        .instruction-card {
+            background-color: rgba(255,255,255,0.02);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 25px;
+        }
+        ol {
+            margin: 0;
+            padding-left: 25px;
+        }
         li {
-            margin-bottom: 10px;
+            margin-bottom: 16px;
+            color: #cbd5e1;
+            font-size: 1.05em;
+        }
+        li strong {
+            color: #ffffff;
+        }
+        .important-note {
+            background-color: rgba(251, 191, 36, 0.06);
+            border: 1px solid rgba(251, 191, 36, 0.3);
+            border-radius: 8px;
+            padding: 15px 20px;
+            margin-top: 15px;
+            font-size: 0.95em;
+            color: #fde047;
+        }
+        .btn-copy {
+            background-color: var(--primary);
+            color: var(--bg-main);
+            border: none;
+            padding: 8px 18px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 0.9em;
+            transition: all 0.2s ease;
+        }
+        .btn-copy:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-1px);
+        }
+        .btn-copy:active {
+            transform: translateY(0);
         }
         .footer {
             text-align: center;
-            margin-top: 30px;
+            margin-top: 50px;
             font-size: 0.9em;
-            color: #7b8893;
-        }
-        button {
-            background-color: #4fc3f7;
-            color: #1a1c1e;
-            border: none;
-            padding: 6px 12px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: bold;
-            margin-left: 10px;
-        }
-        button:hover {
-            background-color: #29b6f6;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border);
+            padding-top: 25px;
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <h1>🐧 Welcome to PenguinSMP! 🐧</h1>
-        <p style="text-align: center; font-size: 1.1em;">Follow the simple guide below to connect and play with us on both Java and Bedrock editions.</p>
-
-        <!-- SERVER INFO -->
-        <div class="connection-box">
-            <div class="ip-line"><strong>Server IP:</strong> <span class="highlight" id="serverIp">://penguinsmp.com</span> <button onclick="copyIp()">Copy</button></div>
-            <div class="ip-line"><strong>Bedrock Port:</strong> <span class="highlight">19132</span></div>
+        
+        <!-- HEADER -->
+        <div class="header-section">
+            <h1>PenguinSMP Connection Guide</h1>
+            <p class="subtitle">Welcome to the official connection hub. Follow the comprehensive steps below to connect and play on our cross-play server network.</p>
         </div>
 
-        <!-- JAVA EDITION GUIDE -->
-        <h2>How to Join (Minecraft Java Edition)</h2>
-        <ol>
-            <li>Launch Minecraft Java Edition (Version 1.20+ recommended).</li>
-            <li>Click on <strong>Multiplayer</strong> from the main menu.</li>
-            <li>Click the <strong>Add Server</strong> button at the bottom.</li>
-            <li>Enter <span class="highlight">PenguinSMP</span> as the Server Name.</li>
-            <li>Type <span class="highlight">://penguinsmp.com</span> into the Server Address box.</li>
-            <li>Click <strong>Done</strong>, select the server, and click <strong>Join Server</strong>!</li>
-        </ol>
+        <!-- SERVER CREDENTIALS -->
+        <div class="connection-panel">
+            <div class="panel-row">
+                <div>
+                    <div class="panel-label">Server IP Address</div>
+                    <p style="margin: 4px 0 0 0; font-size: 0.85em; color: var(--text-muted);">Use this address for both Java and Bedrock versions.</p>
+                </div>
+                <div class="value-container">
+                    <span class="code-badge" id="serverIp">://penguinsmp.com</span>
+                    <button class="btn-copy" onclick="copyIp()">Copy IP</button>
+                </div>
+            </div>
+            <div class="panel-row">
+                <div>
+                    <div class="panel-label">Bedrock Port Entry</div>
+                    <p style="margin: 4px 0 0 0; font-size: 0.85em; color: var(--text-muted);">Mobile, Console, and Windows app players require this port.</p>
+                </div>
+                <div class="value-container">
+                    <span class="code-badge">19132</span>
+                </div>
+            </div>
+        </div>
 
-        <!-- BEDROCK EDITION GUIDE -->
-        <h2>How to Join (Minecraft Bedrock / Windows / Mobile / Console)</h2>
-        <ol>
-            <li>Launch Minecraft Bedrock (PlayStation, Xbox, Switch, iOS, Android, or Windows 10/11).</li>
-            <li>Click <strong>Play</strong> and navigate to the <strong>Servers</strong> tab.</li>
-            <li>Scroll all the way down to the bottom and click <strong>Add Server</strong>.</li>
-            <li>Set Server Name to: <span class="highlight">PenguinSMP</span></li>
-            <li>Set Server Address to: <span class="highlight">://penguinsmp.com</span></li>
-            <li>Set Port to: <span class="highlight">19132</span></li>
-            <li>Click <strong>Save</strong> or <strong>Play</strong> to jump right in!</li>
-        </ol>
+        <!-- JAVA EDITION -->
+        <div class="section-title">
+            <span>💻</span> Minecraft Java Edition (PC / Mac / Linux)
+        </div>
+        <div class="instruction-card">
+            <ol>
+                <li>Launch the standard Minecraft Launcher and boot up your game (Version <strong>1.20 or newer</strong> is recommended for full compatibility).</li>
+                <li>On the main game menu, click on the <strong>Multiplayer</strong> selection button.</li>
+                <li>Look toward the bottom-right corner of your screen and click on the <strong>Add Server</strong> button.</li>
+                <li>In the <strong>Server Name</strong> text field, type a profile title you'll recognize, such as <span style="color: var(--primary); font-weight:600;">PenguinSMP</span>.</li>
+                <li>In the <strong>Server Address</strong> box, carefully type or paste your server IP: <span class="code-badge" style="font-size: 0.9em; padding: 3px 8px;">://penguinsmp.com</span></li>
+                <li>Click the <strong>Done</strong> button at the bottom to save your configuration profile.</li>
+                <li>Locate the new entry in your multiplayer list, click it once to highlight it, and select <strong>Join Server</strong> to log in.</li>
+            </ol>
+        </div>
 
+        <!-- BEDROCK EDITION -->
+        <div class="section-title">
+            <span>📱</span> Minecraft Bedrock Edition (Consoles, Mobile & Windows App)
+        </div>
+        <div class="instruction-card">
+            <ol>
+                <li>Open Minecraft on your device (Xbox, PlayStation, Nintendo Switch, iPhone/iPad, Android device, or the Windows Store App).</li>
+                <li>Click the main <strong>Play</strong> menu option and look at the tabs along the top. Select the <strong>Servers</strong> tab.</li>
+                <li>Scroll past the featured servers entirely. Scroll all the way down to the bottom of the page and click <strong>Add Server</strong>.</li>
+                <li>Fill out the three required configuration profile boxes exactly as follows:
+                    <ul style="margin: 10px 0; padding-left: 20px; list-style-type: square; color: #94a3b8;">
+                        <li style="margin-bottom: 6px;"><strong style="color: #fff;">Server Name:</strong> PenguinSMP</li>
+                        <li style="margin-bottom: 6px;"><strong style="color: #fff;">Server Address:</strong> ://penguinsmp.com</li>
+                        <li style="margin-bottom: 0;"><strong style="color: #fff;">Port:</strong> 19132</li>
+                    </ul>
+                </li>
+                <li>Click the <strong>Save</strong> button to add it permanently to your quick-access list, or hit <strong>Play</strong> to join instantly!</li>
+            </ol>
+            <div class="important-note">
+                <strong>Console Players Notice (Xbox, PlayStation, Switch):</strong> Console platforms naturally block third-party custom servers. To bypass this restriction and join, download free community apps like <strong>Bedrock Together</strong> or <strong>MC Server Connector</strong> on your mobile phone while connected to the same Wi-Fi network.
+            </div>
+        </div>
+
+        <!-- FOOTER -->
         <div class="footer">
-            &copy; 2026 PenguinSMP Community. Have fun playing!
+            &copy; 2026 PenguinSMP Community Network. All server structures are hosted privately.
         </div>
     </div>
 
@@ -123,7 +245,7 @@
         function copyIp() {
             var ipText = document.getElementById("serverIp").innerText;
             navigator.clipboard.writeText(ipText);
-            alert("Server IP copied to clipboard: " + ipText);
+            alert("PenguinSMP Server IP successfully copied: " + ipText);
         }
     </script>
 
